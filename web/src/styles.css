@@ -1,0 +1,40 @@
+:root { --bg: #f4f6f9; --card: #fff; --ink: #1b2430; --muted: #5d6b7c; --line: #dde3ea; --brand: #0b6bcb; --ok: #1a7f4b; --bad: #b3261e; }
+@media (prefers-color-scheme: dark) { :root { --bg: #12171d; --card: #1b222b; --ink: #e8edf3; --muted: #98a6b6; --line: #2d3743; --brand: #5aa6ff; --ok: #4cc38a; --bad: #ff8a80; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 system-ui, sans-serif; }
+.app { max-width: 1000px; margin: 0 auto; padding: 24px 16px 64px; }
+header h1 { margin: 0; font-size: 24px; } header p { margin: 4px 0 20px; color: var(--muted); }
+.steps { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.steps button { background: var(--card); color: var(--ink); border: 1px solid var(--line); }
+.steps button.active { border-color: var(--brand); color: var(--brand); font-weight: 600; }
+.steps span { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--line); font-size: 12px; margin-right: 4px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin-bottom: 16px; }
+.card h2 { margin: 0 0 8px; font-size: 18px; } .card h2 small { color: var(--muted); font-weight: 400; font-size: 13px; margin-left: 6px; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; } .grid2 .actions { grid-column: 1 / -1; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 12px; }
+label { display: block; margin: 8px 0; color: var(--muted); font-size: 13px; }
+input:not([type=checkbox]), select { display: block; width: 100%; margin-top: 4px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); font: inherit; }
+button, .btn { display: inline-block; padding: 8px 14px; border: 0; border-radius: 6px; background: var(--brand); color: #fff; font: inherit; cursor: pointer; text-decoration: none; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+.actions { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
+table { width: 100%; border-collapse: collapse; margin-top: 8px; } th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); font-size: 14px; }
+tbody tr { cursor: default; } .pk td { font-weight: 600; } .search { margin-bottom: 8px; }
+code { background: var(--bg); padding: 1px 5px; border-radius: 4px; }
+.hint { color: var(--muted); font-size: 13px; }
+.ok { color: var(--ok); font-size: 13px; font-weight: 600; margin-left: 8px; } .bad, .error, .issues .error { color: var(--bad); }
+.bad { font-size: 13px; font-weight: 600; margin-left: 8px; }
+.issues { padding-left: 18px; font-size: 13px; } .issues .warn { color: var(--muted); }
+.yaml { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 12px; overflow: auto; max-height: 300px; font-size: 13px; }
+.result { border-top: 1px solid var(--line); margin-top: 12px; padding-top: 8px; } .result h3 { margin: 0 0 4px; font-size: 15px; }
+@media (max-width: 600px) { .app { padding: 16px; } }
+.agent-fab { position: fixed; right: 20px; bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+.agent { position: fixed; right: 20px; bottom: 20px; width: min(420px, calc(100vw - 32px)); height: min(600px, calc(100vh - 40px)); display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,.3); padding: 12px; }
+.agent > header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; } .agent > header button { margin-left: 6px; padding: 4px 10px; font-size: 13px; }
+.agent-log { flex: 1; overflow: auto; display: flex; flex-direction: column; gap: 8px; }
+.agent .msg { padding: 8px 10px; border-radius: 8px; white-space: pre-wrap; font-size: 14px; max-width: 92%; }
+.agent .msg.user { align-self: flex-end; background: var(--brand); color: #fff; }
+.agent .msg.agent { background: var(--bg); border: 1px solid var(--line); }
+.agent .msg.tools { color: var(--muted); font-size: 12px; background: none; padding: 0 4px; }
+.agent .msg.error { color: var(--bad); border: 1px solid var(--bad); }
+.agent .approve { border: 1px solid var(--brand); border-radius: 8px; padding: 10px; } .agent .approve p { margin: 4px 0 8px; }
+.agent form { display: flex; gap: 8px; margin-top: 8px; } .agent form input { margin-top: 0; }
